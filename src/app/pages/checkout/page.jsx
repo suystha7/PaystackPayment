@@ -8,7 +8,7 @@ import CryptoJS from "crypto-js";
 const Checkout = () => {
   const [formData, setFormData] = useState({
     transaction_uuid: uuidv4(),
-    secret: "sk_test_b8d3009f2c193e8e4b36439ee279971967049f1e",
+    secret: process.env.NEXT_PUBLIC_SECRET_KEY,
     product_code: "EPAYTEST",
     success_url: "http://localhost:3000/pages/payment-success",
     failure_url: "http://localhost:3000/pages/payment-failure",
@@ -73,7 +73,7 @@ const Checkout = () => {
 
   const initializePayment = (amount) => {
     const handler = window.PaystackPop.setup({
-      key: "pk_test_5b0854fb929ec097e178c5814eb97f6ae5cfcc0c",
+      key: process.env.NEXT_PUBLIC_PUBLIC_KEY,
       email: "suyog.tukilogic@gmail.com",
       amount: amount * 100,
       currency: "NGN",
